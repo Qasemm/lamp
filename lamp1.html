@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+    
+ <style>
+    * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  background-color: #e74c3c;
+}
+.container {
+  margin: 40px auto 20px;
+  width: 250px;
+}
+.clock {
+  border: 5px solid #FFF;
+  border-radius: 10%;
+  display: block;
+  height: 250px;
+  width: 250px;
+  position: relative;
+}
+.clock:after{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:15px;
+  height:15px;
+  margin:-6px 0 0 -6px;
+  background:#fff;
+  border-radius:6px;
+  content:"";
+  display:block;
+}
+.clock .hour {
+  background: #fff;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  margin: -60px -2px 0;
+  padding: 60px 2px 0;
+}
+.clock .minute , .clock .second {
+  background: #fff;
+  height: 0;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  width: 0;
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  margin: -105px -2px 0;
+  padding: 105px 2px 0;
+}
+
+    </style>
+    <script>
+    function clock() { 
+  var mo = moment(),
+      s = mo.second() * 6,
+      m = mo.minutes() * 6,
+      h = mo.hours() % 12 / 12 * 360 + (m / 12);
+  
+  $(".hour").css("transform", "rotate(" + h + "deg)");
+  $(".minute").css("transform", "rotate(" + m + "deg)");
+  $(".second").css("transform", "rotate(" + s + "deg)");
+}
+function refreshClock() {
+  clock(), setTimeout(refreshClock, 100)
+}
+
+refreshClock();
+
+
+
+
+
+
+    
+    
+    </script>
+
+</head>
+
+	<body>
+<div class="container">
+  <div class="clock">
+      <div class="hour"></div>
+      <div class="minute"></div>
+      <div class="second"></div>
+  </div>
+ 
+</div>
+<div class="container" style="width:854px;background: #fff;padding: 10px;display: flex;">
+  <iframe width="854" height="480" src="https://www.youtube.com/embed/_5VF0hl-GDs" frameborder="0" allowfullscreen></iframe>
+</div>
+</body>
+</html>
